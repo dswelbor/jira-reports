@@ -18,5 +18,5 @@ def main():
     point
     :return: None
     """
-    str = pardon_dust()
-    print(f'[main]: {str}')
+    hello_str = pardon_dust()
+    print(f'[main]: {hello_str}')
