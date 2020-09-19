@@ -1,9 +1,11 @@
 """
 This module serves to wrap auth logic for the jira api python wrapper. It
 also serves as a starting point for extending additional custom behavior for
-the client.
+the client. For more information about jira cloud oauth visit:
+https://developer.atlassian.com/cloud/jira/platform/jira-rest-api-oauth-authentication/
 """
 import json
+import oauth2 as oauth
 import jira
 
 

@@ -12,6 +12,7 @@ include = [
 [tool.poetry.dependencies]
 python = "^3.6"
 jira = "^2.0.0"
+oauth2 = "^1.9.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.0.2"
