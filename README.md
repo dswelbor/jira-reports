@@ -41,7 +41,11 @@ This package can also be run locally, for development or otherwise. Example
 usage from commandline include:
 
 ```
-poetry run python3 -m jira_reports.hello
+# main runner
+poetry run runner
+
+# call __main__
+poetry run python3 -m jira_reports
 ```
 
 ## Local Dev Quality Tools
