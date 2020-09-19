@@ -4,3 +4,6 @@ __pycache__/
 
 # Build artifacts
 *.egg-info/
+
+# credentials
+auth/
