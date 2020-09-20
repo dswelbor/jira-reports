@@ -23,7 +23,8 @@ def main():
     hello_str = pardon_dust()
     print(f'[main]: {hello_str}')
     j_client = JiraClient()
-    issue = j_client.client.issue('DEVPM-1')
-    issues = j_client.client.search_issues('sprint in openSprints() and sprint not in futureSprints()')
-    stories = [issue for issue in issues if issue.fields.issuetype.name == 'Story']
+    # issue = j_client.client.issue('DEVPM-1')
+    # issues = j_client.client.search_issues('sprint in openSprints() and sprint not in futureSprints()')
+    # stories = [issue for issue in issues if issue.fields.issuetype.name == 'Story']
+    test_result = j_client.test()
     print('Jira client initialized')

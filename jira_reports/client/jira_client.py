@@ -103,22 +103,6 @@ class JiraClient:
                 }
                 with open('auth/jira_oauth.json', 'w') as auth_file:
                     json.dump(self.__credentials, auth_file)
-                # TODO: Fix this
-                """
-                test_url = f'{self.base_url}'
-                test_tokens = oauth.Token(valid_tokens['oauth_token'],
-                                           valid_tokens['oauth_token_secret'])
-                test_client = oauth.Client(consumer, test_tokens)
-                test_client.set_signature_method(SignatureMethod_RSA_SHA1())
-                resp, content = test_client.request(test_url, "GET")
-                if resp.status == 200:
-                    print('Successfully completed handshake')
-                    print(content)
-                else:
-                    print(f'Error: {content}')
-                    # TODO: Throw custome exception
-                print(valid_tokens)
-                """
             # Failure - user did not auth
             else:
                 print('User did not authorize')
@@ -128,3 +112,21 @@ class JiraClient:
             print('Failed to start OAuth handshake')
             # TODO: Add exception here
             # raise oauth.error.UserNotAuthenticated(str(resp.status))
+
+    def test(self):
+        """Just a test method"""
+        test_url = f'{self.base_url}/rest/api/3/issue/DEVPM-1'
+        consumer = oauth.Consumer(self._consumer_key, self._consumer_secret)
+        test_tokens = oauth.Token(self.__credentials['access_token'],
+                                  self.__credentials['access_token_secret'])
+        test_client = oauth.Client(consumer, test_tokens)
+        test_client.set_signature_method(SignatureMethod_RSA_SHA1())
+        resp, resp_body = test_client.request(test_url, "GET")
+        if resp.status == 200:
+            print('test success')
+            resp_body_dict = json.loads(resp_body)
+            print(json.dumps(resp_body_dict, indent=2))
+        else:
+            print(f'Error: {str(resp_body, "utf-8")}')
+            # TODO: Throw custome exception
+        print('sucess')
