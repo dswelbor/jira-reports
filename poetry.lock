@@ -345,6 +345,14 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 version = "1.15.0"
 
 [[package]]
+category = "main"
+description = "tlslite implements SSL and TLS."
+name = "tlslite"
+optional = false
+python-versions = "*"
+version = "0.4.9"
+
+[[package]]
 category = "dev"
 description = "Python Library for Tom's Obvious, Minimal Language"
 name = "toml"
@@ -396,7 +404,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "78bd4d445a64c49d02a93bbcfdab380e8db24580b16ee7e1397eb8ab587f09ad"
+content-hash = "5ae6b342d144c76044dac5765107ec4ac7f908f3d09f6d5798d4391aa8dea1cb"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -535,6 +543,9 @@ requests-toolbelt = [
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
     {file = "six-1.15.0.tar.gz", hash = "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"},
+]
+tlslite = [
+    {file = "tlslite-0.4.9.tar.gz", hash = "sha256:9b9a487694c239efea8cec4454a99a56ee1ae1a5f3af0858ccf8029e2ac2d42d"},
 ]
 toml = [
     {file = "toml-0.10.1-py2.py3-none-any.whl", hash = "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"},

@@ -2,6 +2,8 @@
 This is a placeholder module. More coming soon.
 """
 
+from jira_reports.client.jira_client import JiraClient
+
 
 def pardon_dust():
     """
@@ -20,3 +22,8 @@ def main():
     """
     hello_str = pardon_dust()
     print(f'[main]: {hello_str}')
+    j_client = JiraClient()
+    issue = j_client.client.issue('DEVPM-1')
+    issues = j_client.client.search_issues('sprint in openSprints() and sprint not in futureSprints()')
+    stories = [issue for issue in issues if issue.fields.issuetype.name == 'Story']
+    print('Jira client initialized')
