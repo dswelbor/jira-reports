@@ -26,5 +26,7 @@ def main():
     # issue = j_client.client.issue('DEVPM-1')
     # issues = j_client.client.search_issues('sprint in openSprints() and sprint not in futureSprints()')
     # stories = [issue for issue in issues if issue.fields.issuetype.name == 'Story']
-    test_result = j_client.test()
+    # test_result = j_client.test_issue()
+    test_result_2 = j_client.test_sprints()
+    test_results_3 = j_client.test_sprint_issues()
     print('Jira client initialized')

@@ -113,7 +113,7 @@ class JiraClient:
             # TODO: Add exception here
             # raise oauth.error.UserNotAuthenticated(str(resp.status))
 
-    def test(self):
+    def test_issue(self):
         """Just a test method"""
         test_url = f'{self.base_url}/rest/api/3/issue/DEVPM-1'
         consumer = oauth.Consumer(self._consumer_key, self._consumer_secret)
@@ -123,10 +123,72 @@ class JiraClient:
         test_client.set_signature_method(SignatureMethod_RSA_SHA1())
         resp, resp_body = test_client.request(test_url, "GET")
         if resp.status == 200:
-            print('test success')
+            print('test - get issue - success')
             resp_body_dict = json.loads(resp_body)
             print(json.dumps(resp_body_dict, indent=2))
         else:
             print(f'Error: {str(resp_body, "utf-8")}')
             # TODO: Throw custome exception
         print('sucess')
+
+    def test_sprint(self):
+        """Just a test method"""
+        sprint_id = '1'
+        test_url = f'{self.base_url}/rest/agile/1.0/sprint/{sprint_id}'
+        consumer = oauth.Consumer(self._consumer_key, self._consumer_secret)
+        test_tokens = oauth.Token(self.__credentials['access_token'],
+                                  self.__credentials['access_token_secret'])
+        test_client = oauth.Client(consumer, test_tokens)
+        test_client.set_signature_method(SignatureMethod_RSA_SHA1())
+        resp, resp_body = test_client.request(test_url, "GET")
+        if resp.status == 200:
+            print('test - get sprint - success')
+            resp_body_dict = json.loads(resp_body)
+            print(json.dumps(resp_body_dict, indent=2))
+            return resp_body_dict
+        else:
+            print(f'Error: {str(resp_body, "utf-8")}')
+            # TODO: Throw custome exception
+        print('success')
+
+    def test_sprints(self):
+        """Just a test method"""
+        board_id = '1'
+        test_url = f'{self.base_url}/rest/agile/1.0/board/{board_id}/sprint'
+        print(f'Getting board_id={board_id}\'s sprints\n{test_url}')
+        consumer = oauth.Consumer(self._consumer_key, self._consumer_secret)
+        test_tokens = oauth.Token(self.__credentials['access_token'],
+                                  self.__credentials['access_token_secret'])
+        test_client = oauth.Client(consumer, test_tokens)
+        test_client.set_signature_method(SignatureMethod_RSA_SHA1())
+        resp, resp_body = test_client.request(test_url, "GET")
+        if resp.status == 200:
+            print('test - get board\'s sprints - success')
+            resp_body_dict = json.loads(resp_body)
+            print(json.dumps(resp_body_dict, indent=2))
+            return resp_body_dict
+        else:
+            print(f'Error: {str(resp_body, "utf-8")}')
+            # TODO: Throw custome exception
+        print('success')
+
+    def test_sprint_issues(self):
+        """Just a test method"""
+        sprint_id = '1'
+        test_url = f'{self.base_url}/rest/agile/1.0/sprint/{sprint_id}/issue'
+        print(f'Getting sprint_id={sprint_id}\'s issues\n{test_url}')
+        consumer = oauth.Consumer(self._consumer_key, self._consumer_secret)
+        test_tokens = oauth.Token(self.__credentials['access_token'],
+                                  self.__credentials['access_token_secret'])
+        test_client = oauth.Client(consumer, test_tokens)
+        test_client.set_signature_method(SignatureMethod_RSA_SHA1())
+        resp, resp_body = test_client.request(test_url, "GET")
+        if resp.status == 200:
+            print('test - get board\'s sprints - success')
+            resp_body_dict = json.loads(resp_body)
+            print(json.dumps(resp_body_dict, indent=2))
+            return resp_body_dict
+        else:
+            print(f'Error: {str(resp_body, "utf-8")}')
+            # TODO: Throw custome exception
+        print('success')
