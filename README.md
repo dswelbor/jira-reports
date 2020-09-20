@@ -25,8 +25,8 @@ used to perform the oauth:
  
  Note: Pycharm does not support multiline env vars - as are used in the RSA 
  key. Credentials can be stored locally in `jira_reports/auth/` as needed - 
- and are strictly ignored by .gitignore. DO NOT COMMIT CREDENTIALS IN 
- `jira_reports/auth/` TO VERSION CONTROL.
+ and are strictly ignored by .gitignore. DO NOT COMMIT CREDENTIALS TO 
+ VERSION CONTROL.
  
  ## Setup
  This package uses poetry for dependency management. To install the 
