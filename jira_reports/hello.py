@@ -29,4 +29,5 @@ def main():
     # test_result = j_client.test_issue()
     test_result_2 = j_client.test_sprints()
     test_results_3 = j_client.test_sprint_issues()
-    print('Jira client initialized')
+    # print('Jira client initialized')
+    print('test done')
